@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#100d19" />
+  <title>Marceline — aura.exe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="aura-night">
+  <div class="boot-screen" id="bootScreen"><div><span>Welcome</span><i></i><small></small></div></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="grain"></div>
+  <canvas id="ambientCanvas" aria-hidden="true"></canvas>
+  <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
+  <div class="fx-layer" id="fxLayer" aria-hidden="true"></div>
+
+  <main class="page-shell">
+
+    <section class="profile-card reveal" id="profile">
+      <div class="profile-glow"></div>
+
+      <div class="banner-wrap" id="bannerWrap">
+        <img src="assets/img/banner.jpg" alt="Banner do perfil" class="banner" id="bannerMedia" draggable="false" decoding="async" />
+        <div class="banner-vignette"></div>
+        <div class="scanlines"></div>
+        <div class="banner-topline"><span>marcy://presence</span><span id="liveClock">03:25:00</span></div>
+        <div class="banner-badge"><span class="pulse-dot"></span> <3 <b>✦</b></div>
+        <div class="banner-grid"></div>
+      </div>
+
+      <div class="profile-body">
+        <div class="avatar-stack magnetic">
+          <div class="avatar-ring"></div>
+          <img src="assets/img/avatar.jpg" alt="Avatar da Marceline" class="avatar" />
+          <span class="status-dot" aria-label="Não perturbe">—</span>
+        </div>
+
+        <div class="presence-bubble floaty">
+          <span class="cloud">☁</span><span>〆(・ω・`) I hate being sober</span><i></i>
+        </div>
+
+        <div class="identity-row">
+          <div>
+            <p class="eyebrow">PROFILE // <span class="blink">●</span> ONLINE </p>
+            <h1><span>Marceline</span></h1>
+            <p class="username"><b>@thevolkova_</b><span>•</span> she / her <span>•</span> <em>AMO GATINHOS :3</em></p>
+          </div>
+          <button class="ghost-btn magnetic" id="copyBtn" data-copy="thevolkova_">
+            <span>copy user</span><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+
+        <div class="profile-toolbar">
+          <div class="badge-row badge-photo-row" aria-label="badges">
+            <button class="badge-photo"><img src="assets/placeholders/badge-01.png" alt="badge placeholder 1"></button>
+            <button class="badge-photo"><img src="assets/placeholders/badge-02.png" alt="badge placeholder 2"></button>
+            <button class="badge-photo"><img src="assets/placeholders/badge-03.png" alt="badge placeholder 3"></button>
+            <button class="badge-photo"><img src="assets/placeholders/badge-04.png" alt="badge placeholder 4"></button>
+            <button class="badge-photo"><img src="assets/placeholders/badge-05.png" alt="badge placeholder 5"></button>
+            <button class="badge-photo"><img src="assets/placeholders/badge-06.png" alt="badge placeholder 6"></button>
+            <button class="badge-photo"><img src="assets/placeholders/badge-07.png" alt="badge placeholder 7"></button>
+          </div>
+          <div class="action-row">
+            <button class="square-btn magnetic icon-btn" id="rainBtn" title="chuva de imagens" aria-label="Chuva de imagens">
+              <svg viewBox="0 0 24 24"><path d="M7 4h10M6 9h12M5 14h14M8 19h8"/><path d="M8 6l-1 4m5-1l-1 4m5-3l-1 4"/></svg>
+            </button>
+            <button class="square-btn magnetic icon-btn" id="burstBtn" title="burst de stickers" aria-label="Burst de stickers">
+              <svg viewBox="0 0 24 24"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.4L12 15.5l-1.7-4.8L6 9.3l4.3-1.7L12 3Z"/><path d="M19 15l.8 2.1L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.9L19 15Z"/><path d="M5 16l.6 1.6L7.2 18l-1.6.6L5 20.2l-.6-1.6L2.8 18l1.6-.4L5 16Z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="marquee marquee-ticker" aria-hidden="true">
+          <div class="marquee-track" id="marqueeTrack">
+            <span>✦ MUSIC ✦ BIKE ✦ NIGHT DRIVE ✦ EDITING ✦ GAMES ✦ RPG ✦</span>
+          </div>
+        </div>
+
+        <div class="ascii-block"><pre>⌁  ✚✚  .    ℳ𝒶𝓇𝒸𝓎    ✟
+      ˚   𓊈   ╋━  ⛧    Solitude   𓊉  ━╋
+   ⌜ ─  ♡  Sensus invisibilitatis  ─ ⌝   </pre></div>
+
+        <div class="details-grid">
+          <article class="detail-panel tilt-card reveal" id="about">
+            <div class="panel-corner">01</div><p class="label">Sobre mim</p>
+            <h2>Não sou boa escrevendo<br><i>Sobre mim.</i></h2>
+            <p>Eu penso demais e falo de menos. Gosto de jogos, música, carros, motos e qualquer lugar quieto longe de gente. Sou meio fechada no começo, mas dps que pego intimidade provavelmente não calo a boca :p</p>
+            <div class="chips"><span>Mecanica</span><span>Programadora</span><span>Editora</span><span>Desenhista</span><span>Compositora</span></div>
+          </article>
+
+          <article class="detail-panel quote-panel tilt-card reveal">
+            <div class="panel-corner">02</div><p class="label">current mood</p>
+            <blockquote>“E todos cortes no meu braço<br>são arranhão de gato.”</blockquote>
+            <audio id="profileAudio" preload="metadata" loop autoplay playsinline src="assets/audio/solitude.mp3"></audio>
+            <div class="music-player">
+              <button class="music-toggle magnetic" id="musicToggle" aria-label="Tocar música">▶</button>
+              <div class="music-main">
+                <div class="music-meta"><b>Dificil De Acreditar</b><em><span id="musicCurrent">00:00</span> / <span id="musicDuration">00:00</span></em></div>
+                <input class="music-progress" id="musicProgress" type="range" min="0" max="100" value="0" aria-label="Progresso da música">
+              </div>
+              <div class="volume-box">
+                <button class="volume-btn" id="volumeBtn" aria-label="Silenciar ou ativar som">⌁</button>
+                <input id="volumeRange" type="range" min="0" max="100" value="55" aria-label="Volume">
+              </div>
+            </div>
+            <div class="equalizer paused" id="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="detail-panel games-panel tilt-card reveal" id="games">
+            <div class="panel-corner">03</div><p class="label">games / interests</p>
+            <div class="game-list game-list-logos">
+              <div><span>01</span><div class="game-title"><img class="game-thumb" src="assets/games/palworld.png" alt="Ícone do Palworld"><b>Palworld</b></div></i><em></em></div>
+              <div><span>02</span><div class="game-title"><img class="game-thumb" src="assets/games/elden-ring.png" alt="Ícone do Elden Ring"><b>Elden Ring</b></div><i>TODA SERIE SOULS NA VDD :3</i><em></div>
+              <div><span>03</span><div class="game-title"><img class="game-thumb" src="assets/games/valorant.png" alt="Ícone do Valorant"><b>League Of Legends</b></div></i><em></div>
+              <div><span>04</span><div class="game-title"><img class="game-thumb" src="assets/games/minecraft.png" alt="Ícone do Minecraft"><b>Minecraft</b></div><i><em></div>
+            </div>
+          </article>
+
+          <article class="detail-panel champions-panel tilt-card reveal" id="lol-champs">
+            <div class="panel-corner">04</div><p class="label">league of legends</p>
+            <h3>bonecos que eu jogo ♡</h3>
+            <div class="champion-list">
+              <div><span>01</span><img src="assets/champions/champ-01.png" alt="Placeholder campeão 1"><b>Yasuo</b><em>Main</em></div>
+              <div><span>02</span><img src="assets/champions/champ-02.png" alt="Placeholder campeão 2"><b>Gragas</b><em>Main</em></div>
+              <div><span>03</span><img src="assets/champions/champ-03.png" alt="Placeholder campeão 3"><b>Yone</b><em>Pool</em></div>
+              <div><span>04</span><img src="assets/champions/champ-04.png" alt="Placeholder campeão 4"><b>Aatrox</b><em>Pool</em></div>
+              <div><span>05</span><img src="assets/champions/champ-05.png" alt="Placeholder campeão 5"><b>Shaco</b><em>Pool</em></div>
+            </div>
+          </article>
+        </div>
+
+        <footer><span>EU SOU UM ARQUITETO <b>PORRA</b></span><span>Feito por mim memo mane ♡ marceline</span></footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">copiado ♡</div>
+
+  <script src="script.js"></script> 
+</body>
+</html>
