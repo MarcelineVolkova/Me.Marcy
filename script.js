@@ -110,7 +110,7 @@ const musicProgress=$('#musicProgress');
 const musicCurrent=$('#musicCurrent');
 const musicDuration=$('#musicDuration');
 const equalizer=$('#equalizer');
-let previousVolume=.55;
+let previousVolume=.25;
 let triedAutoPlay=false;
 
 function formatTime(sec){
@@ -161,7 +161,7 @@ async function tryAutoPlay(){
   }
 }
 if(audio){
-  audio.volume=.55;
+  audio.volume=.25;
   audio.addEventListener('loadedmetadata',syncPlayer);
   audio.addEventListener('timeupdate',syncPlayer);
   audio.addEventListener('play',syncPlayer);
